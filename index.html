@@ -1,0 +1,57 @@
+<html>
+  <script>
+  const tsurukame1=(target1, target2, totalHeads, totalLegs)=>{
+    let y = totalLegs / 2 - totalHeads;
+    console.log(target2 + ':' + (totalHeads - y));
+    console.log(target1 + ':' + y);
+  }
+
+  const tsurukame2=(target1, target2, craneLegs, turtleLegs, totalNum, legTotalNum)=>{
+    let craneNum = totalNum;
+    let turtleNum = 0;
+    let legs = craneNum * craneLegs;
+    if (legs < legTotalNum) {
+      while (legs < legTotalNum) {
+        craneNum--;
+        turtleNum++;
+        legs = craneNum * craneLegs + turtleNum * turtleLegs;
+      }
+    }
+    console.log(target2 + ':' +  craneNum);
+    console.log(target1 + ':' + turtleNum);
+  }
+
+  const tsurukame3=(target1, target2, currentNum, total, plus, minus, result)=>{
+    let allWin = total * plus + currentNum;
+    let win = total;
+    let lose = 0;
+    while (result < allWin) {
+      allWin -= plus + minus;
+      win--;
+      lose++;
+    }
+    console.log(target1 + ":" + win);
+    console.log(target2 + ":" + lose);
+  }
+
+    //鶴と亀が合わせて6 匹います。足の合計が2 0 本であった。 
+    //鶴と亀はそれぞれ何匹いますか？ 
+    tsurukame1("かめ", "つる", 6,20);
+    tsurukame2("かめ", "つる", 2,4,6,20);
+
+    //鶴と亀が合計8 0 匹います。足の数の和が2 0 0 本であったとき、鶴と亀はそれぞれ何匹いますか？
+    tsurukame1("かめ", "つる", 80,200);
+    tsurukame2("かめ", "つる", 2,4,80,200);
+
+    //50円切手と80円切手を合計1 4 枚買って1000 円を支払いました。 50円切手と80円切手をそれぞれ何枚買ったのでしょうか。
+    tsurukame2("40円切手", "60円切手", 40,60,30,1440);
+
+    // 次 のルールでカードゲームを2 人で行いました。 
+    // （ルール）じゃんけんで勝てば、相手から2 枚のカードをもらう。 
+    // 負ければ1 枚渡す。 私 は最初10 枚のカードを持っており、
+    // 7 回じゃんけんを行ったら私 のカードが15 枚になっていました。
+    // 私は何回勝ち、何回負けたでし ょうか。
+    // ただし、引き分けはありませんでした。
+    tsurukame3("勝ち", "負け", 10, 7, 2, 1, 15);
+  </script>
+</html>
